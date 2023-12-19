@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,18 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
     <title>CYCLOPEDIA.TECH</title>
-    <link rel="icon" href="../../static/images/cyclopedia.favicon.png">
+    <link rel="icon" href=" {% static 'images/cyclopedia.favicon.png' %} ">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="../../static/css/fontawesome.css">
-    <link rel="stylesheet" href="../../static/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="../../static/css/owl.css">
-    <link rel="stylesheet" href="../../static/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-liberty-market.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
 Author: Austine Osumba
@@ -54,7 +57,7 @@ Author: Austine Osumba
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="../../static/images/logo.png" alt="">
+                        <img src="{% static 'images/logo.png' %}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -93,12 +96,12 @@ Author: Austine Osumba
             <div class="owl-features owl-carousel">
               <div class="item">
                 <div class="thumb">
-                  <img src="../../static/images/featured-01.jpg" alt="" style="border-radius: 20px;">
+                  <img src="{% static 'images/featured-01.jpg' %}" alt="" style="border-radius: 20px;">
                   <div class="hover-effect">
                     <div class="content">
                       <h4>Triple Twin item 1</h4>
                       <span class="author">
-                        <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
+                        <img src="{% static 'images/author.jpg' %}" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
                         <h6>Author Name<br><a href="#">@authorname</a></h6>
                       </span>
                     </div>
@@ -551,8 +554,8 @@ Author: Austine Osumba
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../../static/vendor/bootstrap/js/bootstrap.min.js"></script>
 
   <script src="../../static/js/isotope.min.js"></script>
   <script src="../../static/js/owl-carousel.js"></script>

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,18 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
     <title>CYCLOPEDIA.TECH</title>
-    <link rel="icon" href="../../static/images/cyclopedia.favicon.png">
+    <link rel="icon" href=" {% static 'images/cyclopedia.favicon.png' %}">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href=" {% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="../../static/css/fontawesome.css">
-    <link rel="stylesheet" href="../../static/css/templatemo-liberty-market.css">
-    <link rel="stylesheet" href="../../static/css/owl.css">
-    <link rel="stylesheet" href="../../static/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href=" {% static 'css/fontawesome.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/templatemo-liberty-market.css' %}">
+    <link rel="stylesheet" href=" {% static 'css/owl.css'%}">
+    <link rel="stylesheet" href=" {% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
 Author: Austine Osumba
@@ -54,13 +56,13 @@ Author: Austine Osumba
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="../../static/images/navlogo.png" alt="">
+                        <img src=" {% static 'images/navlogo.png' %}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="ai.html">Artificial Intelligence</a></li>
+                        <li><a href="{% url 'core:AI' %}">Artificial Intelligence</a></li>
                         <li><a href="crypto.html">Crypto</a></li>
                         <li><a href="blockchain.html">Blockchain</a></li>
                         <li><a href="saas.html">Saas</a></li>
@@ -97,10 +99,10 @@ Author: Austine Osumba
         <div class="col-lg-5 offset-lg-1">
           <div class="owl-banner owl-carousel">
             <div class="item">
-              <img src="../../static/images/banner-01.png" alt="">
+              <img src="{% static 'images/banner-01.png' %}" alt="">
             </div>
             <div class="item">
-              <img src="../../static/images/banner-02.png" alt="">
+              <img src="{% static 'images/banner-02.png' %}" alt="">
             </div>
           </div>
         </div>
@@ -192,7 +194,7 @@ Author: Austine Osumba
               <div class="col-lg-12">
                 <div class="owl-collection owl-carousel">
                   <div class="item">
-                    <img src="../../static/images/collection-01.jpg" alt="">
+                    <img src="{% static 'images/collection-01.jpg' %}" alt="">
                     <div class="down-content">
                       <h4>King of Automobile : Tesla</h4>
                       <span class="collection">Date:<br><strong>23/11/2023</strong></span>
@@ -203,7 +205,7 @@ Author: Austine Osumba
                     </div>
                   </div>
                   <div class="item">
-                    <img src="../../static/images/collection-01.jpg" alt="">
+                    <img src="{% static 'images/collection-01.jpg' %}" alt="">
                     <div class="down-content">
                       <h4>Effects Of Inflation in Africa</h4>
                       <span class="collection">Date:<br><strong>23/11/2023</strong></span>
@@ -214,7 +216,7 @@ Author: Austine Osumba
                     </div>
                   </div>
                   <div class="item">
-                    <img src="../../static/images/collection-01.jpg" alt="">
+                    <img src="{% static '' %}images/collection-01.jpg" alt="">
                     <div class="down-content">
                       <h4>King of Automobile : Tesla</h4>
                       <span class="collection">Date:<br><strong>23/11/2023</strong></span>
@@ -225,7 +227,7 @@ Author: Austine Osumba
                     </div>
                   </div>
                   <div class="item">
-                    <img src="../../static/images/collection-01.jpg" alt="">
+                    <img src="{% static '' %}images/collection-01.jpg" alt="">
                     <div class="down-content">
                       <h4>Effects Of Inflation in Africa</h4>
                       <span class="collection">Date:<br><strong>23/11/2023</strong></span>
@@ -264,7 +266,7 @@ Author: Austine Osumba
               <h6>1</h6>
             </div>
             <div class="icon">
-              <img src="../../static/images/icon-02.png" alt="">
+              <img src="{% static '' %}images/icon-02.png" alt="">
             </div>
             <h4>Build Your Profile</h4>
             <p>Welcome to Cyclopedia.tech! Here, your journey begins by building your unique tech portfolio. Setting up your profile allows you to showcase your innovations</p>
@@ -276,7 +278,7 @@ Author: Austine Osumba
               <h6>2</h6>
             </div>
             <div class="icon">
-              <img src="../../static/images/icon-04.png" alt="">
+              <img src="{% static '' %}images/icon-04.png" alt="">
             </div>
             <h4>Upload Your Digital Innovations to Our Marketplace.</h4>
             <p>Our marketplace invites you to present your cutting-edge tools, software solutions, or resourceful tools.</p>
@@ -285,7 +287,7 @@ Author: Austine Osumba
         <div class="col-lg-4">
           <div class="item">
             <div class="icon">
-              <img src="../../static/images/icon-06.png" alt="">
+              <img src="{% static '' %}images/icon-06.png" alt="">
             </div>
             <h4>Generate Leads &amp; Make Sales</h4>
             <p>Showcase your innovations and insights to captivate potential leads, converting their interest into sales leveraging our platform's reach </p>
@@ -320,12 +322,12 @@ Author: Austine Osumba
             <div class="col-lg-6 currently-market-item all msc">
               <div class="item">
                 <div class="left-image">
-                  <img src="../../static/images/market-01.jpg" alt="" style="border-radius: 20px; min-width: 195px;">
+                  <img src="{% static '' %}images/market-01.jpg" alt="" style="border-radius: 20px; min-width: 195px;">
                 </div>
                 <div class="right-content">
                   <h4>Music Art Super Item</h4>
                   <span class="author">
-                    <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                    <img src="{% static '' %}images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                     <h6>Author Name<br><a href="#">@authorname</a></h6>
                   </span>
                   <div class="line-dec"></div>
@@ -344,12 +346,12 @@ Author: Austine Osumba
             <div class="col-lg-6 currently-market-item all dig">
               <div class="item">
                 <div class="left-image">
-                  <img src="../../static/images/market-01.jpg" alt="" style="border-radius: 20px; min-width: 195px;">
+                  <img src="{% static '' %}images/market-01.jpg" alt="" style="border-radius: 20px; min-width: 195px;">
                 </div>
                 <div class="right-content">
                   <h4>Digital Crypto Artwork</h4>
                   <span class="author">
-                    <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
+                    <img src="{% static '' %}images/author.jpg" alt="" style="max-width: 50px; border-radius: 50%;">
                     <h6>Author Name<br><a href="#">@authorname</a></h6>
                   </span>
                   <div class="line-dec"></div>
@@ -387,15 +389,15 @@ Author: Austine Osumba
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{% static '' %}vendor/jquery/jquery.min.js"></script>
+  <script src="{% static '' %}vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <script src="../../static/js/isotope.min.js"></script>
-  <script src="../../static/js/owl-carousel.js"></script>
+  <script src="{% static '' %}js/isotope.min.js"></script>
+  <script src="{% static '' %}js/owl-carousel.js"></script>
 
-  <script src="../../static/js/tabs.js"></script>
-  <script src="../../static/js/popup.js"></script>
-  <script src="../../static/js/custom.js"></script>
+  <script src="{% static '' %}js/tabs.js"></script>
+  <script src="{% static '' %}js/popup.js"></script>
+  <script src="{% static '' %}js/custom.js"></script>
 
   </body>
 </html>

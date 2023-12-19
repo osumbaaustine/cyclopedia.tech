@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import Index
+from . import views
+
+
+app_name = 'core'
 
 urlpatterns = [
-   path('', Index.as_view(), name='index')
+   path('', views.Index.as_view(), name='index'),
+
+   path('ai/', views.AI.as_view(), name='AI'),
+   path('<slug:slug>/', views.post_detail, name='post_detail'),
 ]
