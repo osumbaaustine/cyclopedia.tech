@@ -57,6 +57,7 @@ from django.contrib.auth.models import User
 # models.py
 from django.db import models
 from django.utils.text import slugify
+import django_filters
 
 
 class Category(models.Model):
@@ -99,3 +100,9 @@ class Entry(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+
+# class EntryFilter(django_filters.FilterSet):
+#     class Meta:
+#         model = Entry
+#         fields = ['Category', 'Subcategory', 'Author']

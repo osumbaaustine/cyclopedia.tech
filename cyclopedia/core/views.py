@@ -55,9 +55,20 @@ class Index(TemplateView):
     template_name = "core/index.html"
 
 
-class AI(ListView):
-    queryset = Entry.objects.all()
+class AICategoryListView(ListView):
+    model = Entry
     template_name = 'core/ai.html'
+    context_object_name = 'ai_entries'
+
+    def get_queryset(self):
+        ai_category = Category.objects.get(name='AI')
+        return Entry.objects.filter(category=ai_category).values()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['ai_category'] = Category.objects.get(name='AI')
+        context['ai_subcategories'] = Subcategory.objects.filter(category__name='AI')
+        return context
 
 
 def entry_detail(request, slug):
