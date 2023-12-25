@@ -56,6 +56,7 @@ from django.contrib.auth.models import User
 
 # models.py
 from django.db import models
+from django.utils.text import slugify
 
 
 class Category(models.Model):
@@ -75,14 +76,16 @@ class Subcategory(models.Model):
 
 class Entry(models.Model):
     thumbnail = models.ImageField(upload_to='images', blank=True, null=True)
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200, default='No Title')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE, null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts', null=True, blank=True)
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts', null=True, blank=True)
+    author = models.CharField(max_length=200, default='')
     owner = models.CharField(max_length=200, null=True, blank=True)
     price = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(default='', blank=True)
+    url = models.URLField(max_length=200, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     class Meta:
@@ -90,3 +93,9 @@ class Entry(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        # Auto-generate the slug based on the title
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)

@@ -1,4 +1,3 @@
-from .models import Entry
 from django import forms
 
 
@@ -6,3 +5,6 @@ from django import forms
 #     class Meta:
 #         model = Entry
 #         fields = "__all__"
+
+class ExcelUploadForm(forms.Form):
+    excel_file = forms.FileField()
