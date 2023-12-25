@@ -82,3 +82,61 @@ def entry_detail(request, slug):
             "entry": entry,
         },
     )
+
+
+class CryptoCategoryListView(ListView):
+    model = Entry
+    template_name = 'core/crypto.html'
+    context_object_name = 'crypto_entries'
+
+    # def get_queryset(self):
+    #     crypto_category = Category.objects.get(name='Cryptocurrency')
+    #     return Entry.objects.filter(category=crypto_category).values()
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
+    #     context['crypto_subcategories'] = Subcategory.objects.filter(category__name='Cryptocurrency')
+    #     return context
+
+    def get_queryset(self):
+        crypto_category = Category.objects.get(name='Cryptocurrency')
+        return Entry.objects.filter(category=crypto_category).values()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
+        return context
+
+
+class SAASCategoryListView(ListView):
+    model = Entry
+    template_name = 'core/saas.html'
+    context_object_name = 'saas_entries'
+
+    def get_queryset(self):
+        saas_category = Category.objects.get(name='SAAS')
+        return Entry.objects.filter(category=saas_category).values()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['saas_category'] = Category.objects.get(name='SAAS')
+        context['saas_subcategories'] = Subcategory.objects.filter(category__name='SAAS')
+        return context
+
+
+class BlockchainCategoryListView(ListView):
+    model = Entry
+    template_name = 'core/blockchain.html'
+    context_object_name = 'blockchain_entries'
+
+    def get_queryset(self):
+        blockchain_category = Category.objects.get(name='Blockchain')
+        return Entry.objects.filter(category=blockchain_category).values()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['blockchain_category'] = Category.objects.get(name='Blockchain')
+        context['blockchain_subcategories'] = Subcategory.objects.filter(category__name='Blockchain')
+        return context
+

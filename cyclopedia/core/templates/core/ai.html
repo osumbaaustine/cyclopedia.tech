@@ -175,16 +175,44 @@ Author: Austine Osumba
                 </fieldset>
               </div>
               <div class="col-lg-3">
-                <fieldset>
-                    <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>All Categories</option>
-                        <option type="checkbox" name="option1" value="Blogsite">AI Blog Sites</option>
-                        <option value="Poweredsolutions">AI Powered Solutions Data</option>
-                        <option value="aicommunities">AI Communities</option>
-                        <option value="aipodcasts">AI Podcasts</option>
-                        
-                    </select>
-                </fieldset>
+                                   <div class="btn-group">
+  <button class="btn rounded-pill btn-outline-light dropdown-toggle" style="background-color: transparent;!important;    width: 100%;
+    height: 46px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 23px;
+    background-color: transparent;
+    padding: 0px 15px;
+    font-size: 14px;
+    color: #fff;
+    line-height: normal; !important;
+    content: '';!important;
+}" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories <i class="bi bi-caret-down-fill"></i>
+          </button>
+  <ul class="dropdown-menu">
+      {% for subcategory in ai_category.subcategories.all %}
+      <li>
+            <a href="?subcategory={{ subcategory.id }}" class="dropdown-item">{{ subcategory.name }}</a>
+      </li>
+{% endfor %}
+  </ul>
+</div>
+{#                <fieldset>#}
+{#                    <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">#}
+{#                        <option selected>All Categories</option>#}
+{#                        <option type="checkbox" name="option1" value="Blogsite">AI Blog Sites</option>#}
+{#                        <option value="Poweredsolutions">AI Powered Solutions Data</option>#}
+{#                        <option value="aicommunities">AI Communities</option>#}
+{#                        <option value="aipodcasts">AI Podcasts</option>#}
+{##}
+{##}
+{#                    </select>#}
+{#                </fieldset>#}
+{#                  ??#}
+{#                  {% for subcategory in ai_category.subcategories.all %}#}
+{#    <a href="?subcategory={{ subcategory.id }}">{{ subcategory.name }}</a>#}
+{#{% endfor %}#}
               </div>
               <div class="col-lg-3">
                 <fieldset>

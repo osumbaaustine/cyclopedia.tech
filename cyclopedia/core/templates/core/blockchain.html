@@ -1,4 +1,6 @@
 {% load static %}
+{% load humanize %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +63,12 @@ Author: Austine Osumba
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      
                       <li><a href="index.html">Home</a></li>
                       <li><a href="ai.html">Artificial Intelligence</a></li>
-                      <li><a href="crypto.html">Crypto</a></li>
-                      <li><a href="blockchain.html"class="active">Blockchain</a></li>
-                      <li><a href="saas.html">Saas</a></li>
-                    </ul>   
+                        <li><a href="crypto.html" >Crypto</a></li>
+                        <li><a href="blockchain.html" class="active">Blockchain</a></li>
+                        <li><a href="saas.html">Saas</a></li>
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -83,9 +84,9 @@ Author: Austine Osumba
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h6>Explore the potential of distributed ledgers, smart contracts, & transformative blockchain applications through our carefully selected content. </h6>
-          <h2>BLOCKCHAIN HUB</h2>
-          <span>Home > <a href="#">Blockchain</a></span>
+          <h6>Delve into a curated array of resources and software products tailored for both novices and experts in the crypto sphere.</h6>
+          <h2>CRYPTO CYCLOPEDIA</h2>
+          <span>Home > <a href="#">Crypto</a></span>
         </div>
       </div>
     </div>
@@ -175,15 +176,45 @@ Author: Austine Osumba
                 </fieldset>
               </div>
               <div class="col-lg-3">
-                <fieldset>
-                    <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                        <option selected>All Categories</option>
-                        <option type="checkbox" name="option1" value="Blockchain-blogs">Blockchain Blogs</option>
-                        <option value="Blockchainpowered-solutions">Blockchain Powered Solutions</option>
-                        <option value="Blockchain-communities">Blockchain Communities</option>
-                        <option value="Blockchain-podcasts">Blockchain Podcasts</option>
-                    </select>
-                </fieldset>
+                                   <div class="btn-group">
+  <button class="btn rounded-pill btn-outline-light dropdown-toggle" style="background-color: transparent;!important;    width: 100%;
+    height: 46px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 23px;
+    background-color: transparent;
+    padding: 0px 15px;
+    font-size: 14px;
+    color: #fff;
+    line-height: normal; !important;
+    content: '';!important;
+}" data-bs-toggle="dropdown" aria-expanded="false">
+            Categories <i class="bi bi-caret-down-fill"></i>
+          </button>
+  <ul class="dropdown-menu">
+      {% for subcategory in blockchain_category.subcategories.all %}
+      <li>
+            <a href="?subcategory={{ subcategory.id }}" class="dropdown-item">{{ subcategory.name }}</a>
+      </li>
+{% endfor %}
+  </ul>
+</div>
+{#                  {% for subcategory in blockchain_category.subcategories.all %}#}
+{#              <ul>#}
+{#                  <li><a href="?subcategory={{ subcategory.id }}">{{ subcategory.name }}</a></li>#}
+{#              </ul>#}
+{#                  {% endfor %}#}
+{#                <fieldset>#}
+{#                    <select name="Category" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">#}
+{#                        <option selected>All Categories</option>#}
+{#                        #}
+{#    <a href="?subcategory={{ subcategory.id }}">{{ subcategory.name }}</a>#}
+{##}
+{#                        <option value="Crypto-powered-products">Crypto Powered Products</option>#}
+{#                        <option value="Crypto-commuinties">Crypto Communities</option>#}
+{#                        <option value="Crypto-podcasts">Crypto Podcasts</option>#}
+{#                    </select>#}
+{#                </fieldset>#}
               </div>
               <div class="col-lg-3">
                 <fieldset>
@@ -191,11 +222,11 @@ Author: Austine Osumba
                         <option selected>Newly Added</option>
                         <option value="Trending-Now">Trending Now</option>
                         <option value="Coming-Soon">Coming Soon</option>
-                        
+                        <option value="Closed">Closed</option>
                     </select>
                 </fieldset>
               </div>
-              <div class="col-lg-2">                        
+              <div class="col-lg-2">
                 <fieldset>
                     <button class="main-button">Search</button>
                 </fieldset>
@@ -203,51 +234,52 @@ Author: Austine Osumba
             </div>
           </form>
         </div>
-        <div class="col-lg-6">
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-12">
-                <span class="banner">Double Item</span>
-              </div>
-              <div class="col-lg-6 col-sm-6">
-                <span class="author">
-                  <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="../../static/images/discover-01.jpg" alt="" style="border-radius: 20px;">
-                <h4>Twin item 1</h4>
-              </div>
-              <div class="col-lg-6 col-sm-6">
-                <span class="author">
-                  <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
-                </span>
-                <img src="../../static/images/discover-02.jpg" alt="" style="border-radius: 20px;">
-                <h4>Twin Item 2</h4>
-              </div>
-              <div class="col-lg-12">
-                <div class="line-dec"></div>
-                <div class="row">
-                  <div class="col-lg-3 col-sm-6">
-                    <span>-: <br> <strong>-</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Category: <br> <strong>Digital Art</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>Collection:: <br> <strong>2/2</strong></span>
-                  </div>
-                  <div class="col-lg-3 col-sm-6">
-                    <span>-: <br> <strong>25th Nov</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="main-button">
-                  <a href="entry_detail.html">View Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+{#        <div class="col-lg-6">#}
+{#          <div class="item">#}
+{#            <div class="row">#}
+{#              <div class="col-lg-12">#}
+{#                <span class="banner">Double Item</span>#}
+{#              </div>#}
+{#              <div class="col-lg-6 col-sm-6">#}
+{#                <span class="author">#}
+{#                  <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">#}
+{#                </span>#}
+{#                <img src="../../static/images/discover-01.jpg" alt="" style="border-radius: 20px;">#}
+{#                <h4>Twin item 1</h4>#}
+{#              </div>#}
+{#              <div class="col-lg-6 col-sm-6">#}
+{#                <span class="author">#}
+{#                  <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">#}
+{#                </span>#}
+{#                <img src="../../static/images/discover-02.jpg" alt="" style="border-radius: 20px;">#}
+{#                <h4>Twin Item 2</h4>#}
+{#              </div>#}
+{#              <div class="col-lg-12">#}
+{#                <div class="line-dec"></div>#}
+{#                <div class="row">#}
+{#                  <div class="col-lg-3 col-sm-6">#}
+{#                    <span>-: <br> <strong>-</strong></span>#}
+{#                  </div>#}
+{#                  <div class="col-lg-3 col-sm-6">#}
+{#                    <span>Category: <br> <strong>Digital Art</strong></span>#}
+{#                  </div>#}
+{#                  <div class="col-lg-3 col-sm-6">#}
+{#                    <span>Collection:: <br> <strong>2/2</strong></span>#}
+{#                  </div>#}
+{#                  <div class="col-lg-3 col-sm-6">#}
+{#                    <span>-: <br> <strong>25th Nov</strong></span>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="col-lg-12">#}
+{#                <div class="main-button">#}
+{#                  <a href="entry_detail.html">View Details</a>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+          {% for entry in blockchain_entries %}
         <div class="col-lg-3">
           <div class="item">
             <div class="row">
@@ -256,27 +288,28 @@ Author: Austine Osumba
                   <img src="../../static/images/author.jpg" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
                 </span>
                 <img src="../../static/images/discover-03.jpg" alt="" style="border-radius: 20px;">
-                <h4>Genesis Meta Boom</h4>
+                <h4>{{ entry.title }}</h4>
               </div>
               <div class="col-lg-12">
                 <div class="line-dec"></div>
                 <div class="row">
-                  <div class="col-6">
-                    <span>-: <br> <strong>-</strong></span>
-                  </div>
-                  <div class="col-6">
-                    <span>-: <br> <strong>26th Nov</strong></span>
+{#                  <div class="col-6">#}
+{#                    <span>-: <br> <strong>-</strong></span>#}
+{#                  </div>#}
+                  <div class="col text-center">
+                    <span><strong>{{ entry.created_on|naturaltime}}</strong></span>
                   </div>
                 </div>
               </div>
               <div class="col-lg-12">
                 <div class="main-button">
-                  <a href="entry_detail.html">View Details</a>
+                  <a href="{% url 'core:entry_detail' entry.slug  %}">View Details</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+          {% endfor %}
         <div class="col-lg-3">
           <div class="item">
             <div class="row">
