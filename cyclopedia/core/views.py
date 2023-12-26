@@ -99,14 +99,26 @@ class CryptoCategoryListView(ListView):
     #     context['crypto_subcategories'] = Subcategory.objects.filter(category__name='Cryptocurrency')
     #     return context
 
+    # def get_queryset(self):
+    #     crypto_category = Category.objects.get(name='Cryptocurrency')
+    #     return Entry.objects.filter(category=crypto_category).values()
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
+    #     return context
+    # Assuming 'Cryptocurrency' is the category name you want to filter by
     def get_queryset(self):
+        # Assuming 'Cryptocurrency' is the category name you want to filter by
         crypto_category = Category.objects.get(name='Cryptocurrency')
-        return Entry.objects.filter(category=crypto_category).values()
+        subcategory_id = self.request.GET.get('subcategory')  # Get subcategory id from the query parameters
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
-        return context
+        if subcategory_id:
+            # Filter entries by both category and subcategory
+            return Entry.objects.filter(category=crypto_category, subcategory__id=subcategory_id).values()
+        else:
+            # If no subcategory selected, only filter by category
+            return Entry.objects.filter(category=crypto_category).values()
 
 
 class SAASCategoryListView(ListView):

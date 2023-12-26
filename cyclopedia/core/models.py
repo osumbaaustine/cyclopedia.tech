@@ -57,7 +57,6 @@ from django.contrib.auth.models import User
 # models.py
 from django.db import models
 from django.utils.text import slugify
-import django_filters
 
 
 class Category(models.Model):

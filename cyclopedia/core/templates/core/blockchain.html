@@ -64,10 +64,10 @@ Author: Austine Osumba
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="index.html">Home</a></li>
-                      <li><a href="ai.html">Artificial Intelligence</a></li>
-                        <li><a href="crypto.html" >Crypto</a></li>
-                        <li><a href="blockchain.html" class="active">Blockchain</a></li>
-                        <li><a href="saas.html">Saas</a></li>
+                      <li><a href="{% url 'core:ai_category' %}">Artificial Intelligence</a></li>
+                        <li><a href="{% url 'core:crypto_category' %}">Crypto</a></li>
+                        <li><a href="{% url 'core:blockchain_category' %}" class="active">Blockchain</a></li>
+                        <li><a href="{% url 'core:saas_category' %}">Saas</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
