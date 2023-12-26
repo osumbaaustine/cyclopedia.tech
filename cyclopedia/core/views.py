@@ -61,15 +61,19 @@ class AICategoryListView(ListView):
     context_object_name = 'ai_entries'
 
     def get_queryset(self):
-        ai_category = Category.objects.get(name='AI')
-        return Entry.objects.filter(category=ai_category).values()
+        queryset = Entry.objects.filter(category__name='AI')
+        subcategory_param = self.request.GET.get('subcategory')
+
+        if subcategory_param:
+            queryset = queryset.filter(subcategory__name=subcategory_param)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['ai_category'] = Category.objects.get(name='AI')
         context['ai_subcategories'] = Subcategory.objects.filter(category__name='AI')
         return context
-
 
 def entry_detail(request, slug):
     template_name = "core/entry_detail.html"
@@ -89,36 +93,33 @@ class CryptoCategoryListView(ListView):
     template_name = 'core/crypto.html'
     context_object_name = 'crypto_entries'
 
-    # def get_queryset(self):
-    #     crypto_category = Category.objects.get(name='Cryptocurrency')
-    #     return Entry.objects.filter(category=crypto_category).values()
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
-    #     context['crypto_subcategories'] = Subcategory.objects.filter(category__name='Cryptocurrency')
-    #     return context
-
-    # def get_queryset(self):
-    #     crypto_category = Category.objects.get(name='Cryptocurrency')
-    #     return Entry.objects.filter(category=crypto_category).values()
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
-    #     return context
-    # Assuming 'Cryptocurrency' is the category name you want to filter by
     def get_queryset(self):
-        # Assuming 'Cryptocurrency' is the category name you want to filter by
-        crypto_category = Category.objects.get(name='Cryptocurrency')
-        subcategory_id = self.request.GET.get('subcategory')  # Get subcategory id from the query parameters
+        queryset = Entry.objects.filter(category__name='Cryptocurrency')
+        subcategory_param = self.request.GET.get('subcategory')
 
-        if subcategory_id:
-            # Filter entries by both category and subcategory
-            return Entry.objects.filter(category=crypto_category, subcategory__id=subcategory_id).values()
-        else:
-            # If no subcategory selected, only filter by category
-            return Entry.objects.filter(category=crypto_category).values()
+        if subcategory_param:
+            queryset = queryset.filter(subcategory__name=subcategory_param)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['crypto_category'] = Category.objects.get(name='Cryptocurrency')
+        context['crypto_subcategories'] = Subcategory.objects.filter(category__name='Cryptocurrency')
+        return context
+
+    # Assuming 'Cryptocurrency' is the category name you want to filter by
+    # def get_queryset(self):
+    #     # Assuming 'Cryptocurrency' is the category name you want to filter by
+    #     crypto_category = Category.objects.get(name='Cryptocurrency')
+    #     subcategory_id = self.request.GET.get('subcategory')  # Get subcategory id from the query parameters
+    #
+    #     if subcategory_id:
+    #         # Filter entries by both category and subcategory
+    #         return Entry.objects.filter(category=crypto_category, subcategory__id=subcategory_id).values()
+    #     else:
+    #         # If no subcategory selected, only filter by category
+    #         return Entry.objects.filter(category=crypto_category).values()
 
 
 class SAASCategoryListView(ListView):
@@ -127,8 +128,13 @@ class SAASCategoryListView(ListView):
     context_object_name = 'saas_entries'
 
     def get_queryset(self):
-        saas_category = Category.objects.get(name='SAAS')
-        return Entry.objects.filter(category=saas_category).values()
+        queryset = Entry.objects.filter(category__name='SAAS')
+        subcategory_param = self.request.GET.get('subcategory')
+
+        if subcategory_param:
+            queryset = queryset.filter(subcategory__name=subcategory_param)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -143,8 +149,13 @@ class BlockchainCategoryListView(ListView):
     context_object_name = 'blockchain_entries'
 
     def get_queryset(self):
-        blockchain_category = Category.objects.get(name='Blockchain')
-        return Entry.objects.filter(category=blockchain_category).values()
+        queryset = Entry.objects.filter(category__name='Blockchain')
+        subcategory_param = self.request.GET.get('subcategory')
+
+        if subcategory_param:
+            queryset = queryset.filter(subcategory__name=subcategory_param)
+
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
